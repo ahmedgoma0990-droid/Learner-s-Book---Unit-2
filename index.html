@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade 5 B-D-F | Unit 2: True Stories About Real People</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ─────────────── RESET & BASE ─────────────── */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #e8e0d8;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 25px 15px;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: containerFade 0.8s ease;
+        }
+
+        @keyframes containerFade {
+            0% { opacity: 0; transform: scale(0.98) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* ─────────────── HEADER ─────────────── */
+        .main-header {
+            background: linear-gradient(145deg, #1a3340, #264653);
+            color: white;
+            padding: 22px 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 6px solid #f4a261;
+            position: relative;
+            overflow: hidden;
+        }
+        .main-header::after {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 300px; height: 300px;
+            background: rgba(244, 162, 97, 0.08);
+            border-radius: 50%;
+            animation: floatBg 12s infinite alternate ease-in-out;
+        }
+        @keyframes floatBg {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-40px, 20px) scale(1.2); }
+        }
+        .main-header h1 {
+            font-weight: 700;
+            font-size: 1.9rem;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+        .main-header h1 small {
+            font-weight: 400;
+            font-size: 1rem;
+            color: #d4c9bc;
+            margin-left: 14px;
+        }
+        .main-header .badge {
+            background: #f4a261;
+            color: #1a2e3b;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(244, 162, 97, 0.3);
+            animation: pulseBadge 2.5s infinite;
+        }
+        @keyframes pulseBadge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ─────────────── PRIMARY TABS ─────────────── */
+        .primary-tab-nav {
+            display: flex;
+            background: #f4efe9;
+            border-bottom: 3px solid #d5c4b3;
+            padding: 0 25px;
+            gap: 6px;
+        }
+        .primary-tab-btn {
+            background: transparent;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #4d3e33;
+            cursor: pointer;
+            transition: 0.3s ease;
+            border-bottom: 5px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 0.5px;
+        }
+        .primary-tab-btn i {
+            font-size: 1.3rem;
+            color: #b07d5e;
+            transition: 0.3s;
+        }
+        .primary-tab-btn:hover {
+            background: #e7ddd2;
+            color: #1a3340;
+        }
+        .primary-tab-btn.active {
+            border-bottom-color: #f4a261;
+            background: #ffffff;
+            color: #1a3340;
+            border-radius: 12px 12px 0 0;
+        }
+        .primary-tab-btn.active i {
+            color: #f4a261;
+            animation: iconWiggle 0.6s ease;
+        }
+        @keyframes iconWiggle {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(12deg); }
+            75% { transform: rotate(-8deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .primary-content {
+            background: #fcfaf7;
+            padding: 20px 25px 25px;
+            min-height: 500px;
+        }
+        .primary-pane { display: none; animation: slideUp 0.4s ease; }
+        .primary-pane.active { display: block; }
+        @keyframes slideUp {
+            0% { opacity: 0.3; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─────────────── SECONDARY TABS ─────────────── */
+        .secondary-tab-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            background: #f0ebe5;
+            padding: 8px 12px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #e0d6cc;
+        }
+        .secondary-tab-btn {
+            background: transparent;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #4d3e33;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .secondary-tab-btn i {
+            font-size: 1rem;
+            color: #7a6858;
+        }
+        .secondary-tab-btn:hover { background: #ddd2c6; }
+        .secondary-tab-btn.active {
+            background: #264653;
+            color: white;
+            box-shadow: 0 4px 12px rgba(38, 70, 83, 0.3);
+        }
+        .secondary-tab-btn.active i { color: #f4a261; }
+
+        .secondary-pane { display: none; animation: fadeIn 0.3s ease; }
+        .secondary-pane.active { display: block; }
+        @keyframes fadeIn { 0% { opacity: 0.2; } 100% { opacity: 1; } }
+
+        /* ─────────────── PAGE TAG (NEW) ─────────────── */
+        .page-tag {
+            display: inline-block;
+            background: #f4a261;
+            color: #1a2e3b;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-left: 14px;
+            vertical-align: middle;
+            box-shadow: 0 3px 8px rgba(244, 162, 97, 0.3);
+            font-family: 'Segoe UI', sans-serif;
+            animation: pagePulse 3s infinite alternate;
+        }
+        .page-tag i { margin-right: 6px; color: #1a2e3b; }
+        @keyframes pagePulse {
+            0% { box-shadow: 0 3px 8px rgba(244, 162, 97, 0.3); }
+            100% { box-shadow: 0 3px 14px rgba(244, 162, 97, 0.6); }
+        }
+        .page-tag-inline {
+            display: inline-block;
+            background: #264653;
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        h2 .page-tag { font-size: 0.85rem; padding: 5px 18px; }
+        .card h3 .page-tag { font-size: 0.7rem; padding: 3px 12px; margin-left: 8px; }
+
+        /* ─────────────── CARDS & LAYOUT ─────────────── */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 6px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 18px 22px 22px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e8dfd6;
+            transition: 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+            border-color: #cbb8a7;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            color: #264653;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .card h3 i {
+            color: #f4a261;
+            font-size: 1.3rem;
+            width: 30px;
+        }
+
+        .story-full {
+            background: #faf6f0;
+            padding: 16px 20px;
+            border-radius: 14px;
+            border: 1px solid #d5c4b3;
+            max-height: 280px;
+            overflow-y: auto;
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: #1f2e3b;
+            margin: 10px 0 16px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .story-full::-webkit-scrollbar { width: 6px; }
+        .story-full::-webkit-scrollbar-thumb { background: #cbb8a7; border-radius: 10px; }
+
+        .qa-block {
+            background: #f4f0eb;
+            border-radius: 14px;
+            padding: 12px 16px;
+            margin: 10px 0 6px;
+            border-left: 5px solid #264653;
+            transition: 0.2s;
+        }
+        .qa-block .question {
+            font-weight: 600;
+            color: #1a3340;
+            font-size: 0.98rem;
+        }
+        .qa-block .answer {
+            display: none;
+            margin-top: 10px;
+            padding: 12px 16px;
+            background: #e3eee8;
+            border-radius: 10px;
+            border-left: 4px solid #f4a261;
+            color: #1a2e3b;
+            font-weight: 500;
+            animation: answerReveal 0.3s ease;
+        }
+        .qa-block .answer.show { display: block; }
+        @keyframes answerReveal {
+            0% { opacity: 0; transform: translateX(-8px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .reveal-btn {
+            background: #264653;
+            color: white;
+            border: none;
+            padding: 4px 18px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+            margin-left: 10px;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .reveal-btn:hover {
+            background: #f4a261;
+            color: #1a2e3b;
+            transform: scale(1.05);
+        }
+        .reveal-btn.showing { background: #7a6858; }
+
+        .flex-tag {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .extra-box {
+            background: #e3eee8;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border-left: 6px solid #f4a261;
+            margin: 14px 0 6px;
+        }
+        .extra-box strong { color: #264653; }
+
+        .example-box {
+            background: #f4efe9;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 8px 0;
+            border: 1px dashed #7a9b8a;
+            font-size: 0.95rem;
+        }
+
+        .footer-sig {
+            margin-top: 30px;
+            text-align: right;
+            border-top: 2px solid #ddd2c6;
+            padding-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a3340;
+            letter-spacing: 0.5px;
+        }
+        .footer-sig i { color: #f4a261; margin-right: 8px; }
+
+        @media (max-width: 1000px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 700px) {
+            .primary-tab-btn { padding: 12px 18px; font-size: 1rem; }
+            .primary-tab-btn span { display: none; }
+            .secondary-tab-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .secondary-tab-btn span { display: none; }
+            .main-header h1 { font-size: 1.3rem; }
+            .primary-content { padding: 15px 12px; }
+            .card { padding: 14px 14px 18px; }
+        }
+        @media (max-width: 450px) {
+            body { padding: 10px; }
+            .container { border-radius: 20px; }
+            .main-header { padding: 14px 18px; }
+            .primary-tab-nav { padding: 0 10px; }
+            .page-tag { font-size: 0.7rem; padding: 3px 10px; margin-left: 6px; }
+        }
+
+        /* Animations */
+        .card .fa-book { animation: bookFloat 4s infinite alternate ease-in-out; }
+        @keyframes bookFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-6px) rotate(-4deg); }
+        }
+        .card .fa-heart { animation: heartBeat 2s infinite; }
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .card .fa-globe { animation: globeSpin 8s infinite linear; }
+        @keyframes globeSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .qa-block .reveal-btn i { transition: 0.3s; }
+        .qa-block .reveal-btn:hover i { transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <header class="main-header">
+        <h1>
+            <i class="fas fa-globe" style="color:#f4a261; margin-right:12px;"></i>
+            Grade 5 B - D - F <small>| Unit 2: True Stories About Real People</small>
+        </h1>
+        <span class="badge"><i class="fas fa-book-open"></i> Pages 32–54</span>
+    </header>
+
+    <!-- ===== PRIMARY TABS (2A & 2B) ===== -->
+    <nav class="primary-tab-nav" id="primaryTabNav">
+        <button class="primary-tab-btn active" data-primary="primary1"><i class="fas fa-star"></i> <span>2A</span></button>
+        <button class="primary-tab-btn" data-primary="primary2"><i class="fas fa-female"></i> <span>2B</span></button>
+    </nav>
+
+    <!-- ===== PRIMARY CONTENT ===== -->
+    <div class="primary-content">
+
+        <!-- ========== PRIMARY 2A ========== -->
+        <div id="primary1" class="primary-pane active">
+
+            <nav class="secondary-tab-nav" id="subTabNav1">
+                <button class="secondary-tab-btn active" data-secondary="sub1a"><i class="fas fa-info-circle"></i> <span>Biography Features</span></button>
+                <button class="secondary-tab-btn" data-secondary="sub1b"><i class="fas fa-mask"></i> <span>P.T. Barnum</span></button>
+                <button class="secondary-tab-btn" data-secondary="sub1c"><i class="fas fa-puzzle-piece"></i> <span>Vocabulary</span></button>
+                <button class="secondary-tab-btn" data-secondary="sub1d"><i class="fas fa-pen"></i> <span>Writing Plan</span></button>
+            </nav>
+
+            <!-- ─── SUB 1A: Biography Features ─── -->
+            <div class="secondary-pane active" id="sub1a">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Structure & Features of a Biography
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Pages 32–33</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-scroll"></i> What is a Biography? <span class="page-tag-inline">Page 32</span></h3>
+                        <ul>
+                            <li>A true life story.</li>
+                            <li>Usually written about someone famous.</li>
+                            <li>An information text – it gives facts, but is written in a storytelling style.</li>
+                            <li>Always written in the <strong>past tense</strong>.</li>
+                            <li>Written from a <strong>third-person point of view</strong> (the biographer).</li>
+                        </ul>
+                        <div class="extra-box">
+                            <i class="fas fa-lightbulb" style="color:#f4a261;"></i> <strong>Word Origin:</strong> From Greek: <em>bios</em> (life) + <em>graphia</em> (writing).
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-user-nurse"></i> Example: Florence Nightingale <span class="page-tag-inline">Page 33</span></h3>
+                        <p><strong>Structure:</strong></p>
+                        <ul>
+                            <li><strong>Title:</strong> Florence Nightingale</li>
+                            <li><strong>Introduction:</strong> Famous nurse who changed hospitals.</li>
+                            <li><strong>Childhood:</strong> Born 1820 in Italy, wealthy family, loved maths and science.</li>
+                            <li><strong>Becoming a Nurse:</strong> Parents disapproved (low job), but she trained and ran a hospital in London.</li>
+                            <li><strong>The Lady of the Lamp:</strong> Went to Crimea in 1853, saved soldiers by cleaning wounds and carrying a lamp at night.</li>
+                            <li><strong>Later Life:</strong> Started a training hospital, wrote books, received medals from Queen Victoria.</li>
+                            <li><strong>Her Legacy:</strong> Known as the 'mother' of modern nursing.</li>
+                        </ul>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">a. What does the introduction tell you?</span> <button class="reveal-btn" data-target="a1"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="a1" class="answer"><strong>Answer:</strong> It tells who she is, her profession, and her main achievement (changing how hospitals treated people).</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">b. How is the information structured?</span> <button class="reveal-btn" data-target="a2"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="a2" class="answer"><strong>Answer:</strong> Chronologically by subheadings: Introduction, Childhood, Becoming a Nurse, The Lady of the Lamp, Later Life, Her Legacy.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">c. What does <em>legacy</em> mean?</span> <button class="reveal-btn" data-target="a3"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="a3" class="answer"><strong>Answer:</strong> Legacy means what a person is remembered for and the impact they left behind.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── SUB 1B: P.T. Barnum ─── -->
+            <div class="secondary-pane" id="sub1b">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    P.T. Barnum – The Greatest Show on Earth
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Pages 34, 35, 38, 39</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-mask"></i> Reading Part 1 (Pages 34–35) <span class="page-tag-inline">Pages 34–35</span></h3>
+                        <div class="story-full">
+                            <strong>Phineas Taylor Barnum was born in 1810.</strong> He grew up in the little town of Bethel, Connecticut, in the United States of America (USA).<br><br>
+                            Every autumn, a man named Hack Bailey and his elephant, Old Bet, came to town. By charging a small fee to see Old Bet, Bailey made a lot of money. From this, young P.T. Barnum learnt that 'When entertaining in public, it is best to have an elephant'.<br><br>
+                            At 24 years of age, Barnum moved to New York City. He worked with a small travelling circus. After a few years, Barnum wanted to start a long-lasting business, so he bought the American Museum, which he renamed after himself.<br><br>
+                            Unlike a museum today, Barnum's <strong>attraction</strong> was part zoo, part theatre, and part 'oddity' show (the audience looked at unusual people and animals).<br><br>
+                            Barnum heard a story about a woman who claimed to be 161 years old. He hired her for his show. 'Unquestionably the most astonishing and interesting curiosity in the world!' read Barnum's advertisements. Within one week of opening this act, Barnum had made 1500 dollars—a lot of money in those days!<br><br>
+                            After Mrs Heth died, Barnum found other acts and <strong>curiosities</strong>—some real, some fake. From jugglers and plate spinners to two-headed cows, P.T. Barnum had all sorts of unusual shows, which he shared with the <strong>paying public</strong>.<br><br>
+                            Barnum searched the world for strange things that people would pay good money to see. Then, the great <strong>showman</strong> came up with the idea that made him world-famous. Barnum decided to put together a circus that would be the best and largest the world had ever seen. The show opened on April 10, 1871, in Brooklyn, New York. It was under a tent that covered three acres. (That's a BIG tent!)
+                        </div>
+
+                        <!-- Page 34 Qs -->
+                        <p style="font-weight:700; color:#264653; margin-top:10px;">
+                            <i class="fas fa-question-circle" style="color:#f4a261;"></i> Make Meaning <span class="page-tag-inline">Page 34</span>
+                        </p>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. Based on the introduction, what is the main idea?</span> <button class="reveal-btn" data-target="p1"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p1" class="answer"><strong>Answer:</strong> The main idea is that P.T. Barnum grew up learning about entertainment and went on to create a world-famous circus.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. Look at the maps. What do the pin and house symbols mean?</span> <button class="reveal-btn" data-target="p2"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p2" class="answer"><strong>Answer:</strong> They show where he lived and worked (Bethel, Connecticut, and New York City).</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">3. Write down two places where P.T. Barnum lived.</span> <button class="reveal-btn" data-target="p3"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p3" class="answer"><strong>Answer:</strong> Bethel, Connecticut, and New York City.</div>
+                        </div>
+
+                        <!-- Page 35 Qs (NEW - just added) -->
+                        <p style="font-weight:700; color:#264653; margin-top:16px;">
+                            <i class="fas fa-question-circle" style="color:#f4a261;"></i> Make Meaning <span class="page-tag-inline">Page 35</span>
+                        </p>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. What was the 161-year-old woman's name?</span> <button class="reveal-btn" data-target="p35a"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p35a" class="answer"><strong>Answer:</strong> Her name was <em>Mrs Heth</em>.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. How do you know Barnum's addition of the woman to the show was a success?</span> <button class="reveal-btn" data-target="p35b"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p35b" class="answer"><strong>Answer:</strong> Because the text says: "Within one week of opening this act, Barnum had made 1500 dollars—a lot of money in those days!"</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">3. What is the main point of the last paragraph?</span> <button class="reveal-btn" data-target="p35c"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p35c" class="answer"><strong>Answer:</strong> The main point is that Barnum created a world-famous, huge circus that opened in Brooklyn, New York, in 1871 — "The Greatest Show on Earth".</div>
+                        </div>
+
+                        <!-- Page 35 Vocabulary Qs (NEW) -->
+                        <p style="font-weight:700; color:#264653; margin-top:16px;">
+                            <i class="fas fa-book" style="color:#f4a261;"></i> Vocabulary <span class="page-tag-inline">Page 35</span>
+                        </p>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. What is an <em>attraction</em>?</span> <button class="reveal-btn" data-target="p35v1"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p35v1" class="answer"><strong>Answer:</strong> An <em>attraction</em> is something interesting that people want to visit or see (a place or an exhibit).</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. What is the meaning of <em>showman</em>?</span> <button class="reveal-btn" data-target="p35v2"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p35v2" class="answer"><strong>Answer:</strong> A <em>showman</em> is a person who organizes and presents public entertainments, especially shows and performances.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">3. What do you think <em>curiosities</em> are?</span> <button class="reveal-btn" data-target="p35v3"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p35v3" class="answer"><strong>Answer:</strong> <em>Curiosities</em> are unusual or interesting objects/people that people want to see (some real, some fake, like two-headed cows or jugglers).</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-crown"></i> Reading Part 2 (Pages 38–39) <span class="page-tag-inline">Pages 38–39</span></h3>
+                        <div class="story-full">
+                            During the summer, Barnum took the circus on the road. It took 500 men and horses to transport the people, animals and equipment. By 1872, the circus was so big that it had to travel by railroad in 70 freight and passenger cars, pulled by three engines. Barnum called it 'The Greatest Show on Earth'—and it was.<br><br>
+                            In 1881, James Anthony Bailey joined with P.T. Barnum to create the Barnum & Bailey Circus. Later, they also joined with another circus run by the Ringling brothers.<br><br>
+                            One of Barnum's biggest successes came when he was in his early 70s. Huge crowds came to see Jumbo, 'The Towering Monarch of His Mighty Race'. Although he didn't name this giant elephant, Barnum's success gave the English language a new word—today, thanks to P.T. Barnum, the word <strong>jumbo</strong> means 'anything really big'.<br><br>
+                            Some years later, after he had been ill, Barnum asked a favour of the New York Evening Sun. He wanted the newspaper to print his <strong>obituary</strong> so he could enjoy it while still alive. The editors of the paper agreed. Less than a month later, on April 7, 1891, P.T. Barnum died at the age of 80.<br><br>
+                            P.T. Barnum's contribution to entertainment goes beyond just the circus—he is credited with introducing large-scale concerts and public museums to diverse audiences. His museum attracted over 82 million visitors between 1842 and 1868. Today, Barnum's legacy remains a source of entertainment for millions of people worldwide. <strong>He reached for the stars</strong>, and he is remembered as one of the stars of history.
+                        </div>
+
+                        <p style="font-weight:700; color:#264653; margin-top:10px;">
+                            <i class="fas fa-question-circle" style="color:#f4a261;"></i> Make Meaning <span class="page-tag-inline">Page 38</span>
+                        </p>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. Why did P.T. Barnum call his show 'The Greatest Show on Earth'?</span> <button class="reveal-btn" data-target="p4"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p4" class="answer"><strong>Answer:</strong> Because it was the biggest and best circus the world had ever seen (covered three acres, traveled by 70 train cars).</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. Why was the show's name changed to Barnum & Bailey Circus?</span> <button class="reveal-btn" data-target="p5"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p5" class="answer"><strong>Answer:</strong> Because James Anthony Bailey joined P.T. Barnum in 1881 to create the Barnum & Bailey Circus.</div>
+                        </div>
+
+                        <p style="font-weight:700; color:#264653; margin-top:14px;">
+                            <i class="fas fa-book" style="color:#f4a261;"></i> Vocabulary <span class="page-tag-inline">Page 38</span>
+                        </p>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. What does <em>jumbo</em> mean? What is a jumbo jet?</span> <button class="reveal-btn" data-target="p6"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p6" class="answer"><strong>Answer:</strong> Jumbo means anything really big. A jumbo jet is a very large airplane.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. What is the meaning of <em>obituary</em>? Use context.</span> <button class="reveal-btn" data-target="p7"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p7" class="answer"><strong>Answer:</strong> An obituary is a notice of someone's death, often in a newspaper, including a short biography. Context clues: "print his obituary so he could enjoy it while still alive" + "P.T. Barnum died".</div>
+                        </div>
+
+                        <p style="font-weight:700; color:#264653; margin-top:14px;">
+                            <i class="fas fa-question-circle" style="color:#f4a261;"></i> Make Meaning <span class="page-tag-inline">Page 39</span>
+                        </p>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. Why did so many people go to Barnum's museum?</span> <button class="reveal-btn" data-target="p8"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p8" class="answer"><strong>Answer:</strong> Because it was part zoo, part theatre, and part oddity show, offering unusual and entertaining things to see.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. How did Barnum contribute to entertaining people?</span> <button class="reveal-btn" data-target="p9"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p9" class="answer"><strong>Answer:</strong> He introduced large-scale concerts, public museums, and the world's largest circus.</div>
+                        </div>
+
+                        <p style="font-weight:700; color:#264653; margin-top:14px;">
+                            <i class="fas fa-comment-dots" style="color:#f4a261;"></i> Language Alert & Discussion <span class="page-tag-inline">Page 39</span>
+                        </p>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">What does "He reached for the stars" mean?</span> <button class="reveal-btn" data-target="p10"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p10" class="answer"><strong>Answer:</strong> It means he had big ambitions and worked hard to achieve great things.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. Is each of the following a feature of a biography? (a–f)</span> <button class="reveal-btn" data-target="p11"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p11" class="answer"><strong>Answer:</strong> a ✓ (famous person), b ✓ (past tense), c ✓ (third person), d ✓ (dates of birth/death), e ✓ (what the person did), f ✓ (why remembered).</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. What is your opinion of Barnum reading his obituary while alive? What does this tell you about his personality?</span> <button class="reveal-btn" data-target="p12"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p12" class="answer"><strong>Answer:</strong> It shows he was eccentric, loved attention, and was very proud of his legacy. (Open-ended)</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">3. Do circuses nowadays still have 'oddities'? Why or why not?</span> <button class="reveal-btn" data-target="p13"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p13" class="answer"><strong>Answer:</strong> Generally no, because society now values acceptance and inclusion, and it's considered unethical to display people as 'oddities'.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">4. What is your opinion of having animals in cages and performing in circuses?</span> <button class="reveal-btn" data-target="p14"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="p14" class="answer"><strong>Answer:</strong> (Open-ended) Many people believe it is cruel, and many countries have laws preventing it.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── SUB 1C: Vocabulary ─── -->
+            <div class="secondary-pane" id="sub1c">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Vocabulary: Prefixes, Suffixes & Word Structure
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Pages 40–41</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-tools"></i> Prefixes & Suffixes <span class="page-tag-inline">Page 40</span></h3>
+                        <ul>
+                            <li><strong>Root word:</strong> the main part of a word.</li>
+                            <li><strong>Prefix:</strong> added to the beginning (e.g., <em>trans-</em> = across).</li>
+                            <li><strong>Suffix:</strong> added to the end (e.g., <em>-ment</em> changes a verb to a noun: equip → equipment).</li>
+                        </ul>
+                        <p><strong>Making Opposites:</strong></p>
+                        <table style="width:100%; border-collapse:collapse; font-size:0.9rem; margin:10px 0;">
+                            <tr style="background:#e8dfd6;"><th style="padding:6px; text-align:left;">Prefix/Suffix</th><th style="padding:6px; text-align:left;">Word</th><th style="padding:6px; text-align:left;">Opposite</th></tr>
+                            <tr><td style="padding:6px;">un-</td><td style="padding:6px;">happy</td><td style="padding:6px;">unhappy</td></tr>
+                            <tr><td style="padding:6px;">im-</td><td style="padding:6px;">possible</td><td style="padding:6px;">impossible</td></tr>
+                            <tr><td style="padding:6px;">in-</td><td style="padding:6px;">convenient</td><td style="padding:6px;">inconvenient</td></tr>
+                            <tr><td style="padding:6px;">dis-</td><td style="padding:6px;">appear</td><td style="padding:6px;">disappear</td></tr>
+                            <tr><td style="padding:6px;">-less</td><td style="padding:6px;">careful</td><td style="padding:6px;">careless</td></tr>
+                        </table>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">Change the underlined words to their opposites:</span> <button class="reveal-btn" data-target="v1"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="v1" class="answer">
+                                <strong>Answer:</strong><br>
+                                a. It was <u>impossible</u> for anyone to copy P.T. Barnum's show.<br>
+                                b. Many of his acts were very <u>unusual</u>.<br>
+                                c. He was <u>disliked</u> by his competitors.<br>
+                                d. He was <u>fearless</u> when looking for new and strange acts.<br>
+                                e. His success was <u>incredible</u>.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-microphone"></i> Polysyllabic Words <span class="page-tag-inline">Page 41</span></h3>
+                        <ul>
+                            <li><strong>Polysyllabic words</strong> have two or more syllables.</li>
+                            <li>Every syllable must have a vowel or a vowel sound.</li>
+                            <li>Example: <em>obituary</em> has 5 syllables: o / bit / u / ar / y (y makes the 'ee' sound).</li>
+                        </ul>
+                        <p><strong>Silent Letters:</strong> Some letters are not pronounced.</p>
+                        <div class="example-box">
+                            castle (t is silent) <br>
+                            choreograph (h is silent)
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">Which letters are silent?</span> <button class="reveal-btn" data-target="v2"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="v2" class="answer">
+                                <strong>Answer:</strong><br>
+                                a. handkerchief → d<br>
+                                b. monarchy → h<br>
+                                c. pneumonia → p<br>
+                                d. programme → m (often pronounced as 'program' at the end)<br>
+                                e. chocolate → o (second o is often silent)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── SUB 1D: Writing Plan ─── -->
+            <div class="secondary-pane" id="sub1d">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Writing: A Plan for a Biography
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Page 42</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-search"></i> Prewrite (Research) <span class="page-tag-inline">Page 42</span></h3>
+                        <ol>
+                            <li>Choose a famous person from the past (sports person, inventor, author, leader).</li>
+                            <li>Research using the Internet, books, or magazines.</li>
+                            <li>Take notes using a <strong>Mind Map</strong>.</li>
+                        </ol>
+                        <p><strong>Questions to research:</strong></p>
+                        <ul>
+                            <li>When and where was this person born?</li>
+                            <li>Where did they grow up and go to school?</li>
+                            <li>What interests or hobbies did they have when young?</li>
+                            <li>Where did they live as an adult?</li>
+                            <li>What did they achieve or contribute to society, and when?</li>
+                            <li>What challenges did they face? How did they overcome them?</li>
+                            <li>When and where did they die?</li>
+                            <li>What is this person remembered for?</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-lightbulb"></i> Tips for Research <span class="page-tag-inline">Page 42</span></h3>
+                        <ul>
+                            <li>Use reliable sources.</li>
+                            <li>Take notes in your own words.</li>
+                            <li>Organize your notes chronologically (by date).</li>
+                            <li>Include key dates and events.</li>
+                        </ul>
+                        <div class="extra-box">
+                            <i class="fas fa-check-circle"></i> Keep your notes safe. You will use them in the "Write" stage.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PRIMARY 2B ========== -->
+        <div id="primary2" class="primary-pane">
+
+            <nav class="secondary-tab-nav" id="subTabNav2">
+                <button class="secondary-tab-btn active" data-secondary="sub2a"><i class="fas fa-database"></i> <span>Sources of Info</span></button>
+                <button class="secondary-tab-btn" data-secondary="sub2b"><i class="fas fa-female"></i> <span>Women Who Mattered</span></button>
+                <button class="secondary-tab-btn" data-secondary="sub2c"><i class="fas fa-tree"></i> <span>Wangari Maathai</span></button>
+                <button class="secondary-tab-btn" data-secondary="sub2d"><i class="fas fa-book"></i> <span>Thesaurus</span></button>
+                <button class="secondary-tab-btn" data-secondary="sub2e"><i class="fas fa-comments"></i> <span>Speaking</span></button>
+                <button class="secondary-tab-btn" data-secondary="sub2f"><i class="fas fa-pen-fancy"></i> <span>Writing</span></button>
+            </nav>
+
+            <!-- ─── SUB 2A: Sources of Info ─── -->
+            <div class="secondary-pane active" id="sub2a">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Sources of Information for a Biography
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Pages 43–44</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-list"></i> Types of Sources <span class="page-tag-inline">Page 44</span></h3>
+                        <ul>
+                            <li><strong>Maps:</strong> Showing where the person lived, worked or travelled.</li>
+                            <li><strong>Photographs:</strong> Of the person and family, friends or colleagues.</li>
+                            <li><strong>Family trees:</strong> Showing the person's family and ancestors.</li>
+                            <li><strong>Letters:</strong> From the person to family or friends or colleagues.</li>
+                            <li><strong>Online research:</strong> Information from books, newspapers and magazines.</li>
+                            <li><strong>Interviews:</strong> With people who knew the person or with the person himself or herself.</li>
+                            <li><strong>Timelines:</strong> Showing the chronology of the person's life. They show the order of events.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-tasks"></i> Task <span class="page-tag-inline">Page 44</span></h3>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">Discuss the type of information found in each source.</span> <button class="reveal-btn" data-target="s1"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="s1" class="answer">
+                                <strong>Answer:</strong><br>
+                                a. Family trees → names and relationships of ancestors.<br>
+                                b. Maps → places they lived, worked, or travelled.<br>
+                                c. Interviews → personal stories, memories, and opinions.<br>
+                                d. Letters → personal thoughts, feelings, and historical context.<br>
+                                e. Timelines → dates and order of key life events.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── SUB 2B: Women Who Mattered ─── -->
+            <div class="secondary-pane" id="sub2b">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Women Who Mattered (Part 1)
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Pages 45–46, 51</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-horse"></i> A Woman Without Weakness <span class="page-tag-inline">Page 45</span></h3>
+                        <div class="story-full">
+                            Born in 1739, Bibi Rajindar Kaur was a Sikh princess of Patiala, a district in northern India. Her father died when she was only four, and her grandfather and ruler of Patiala, Baba Ala Singh, raised her.<br><br>
+                            She was married, but her husband died young and left her to manage the family estate of more than 200 villages. She soon became involved in larger issues.<br><br>
+                            In 1778, her cousin, Raja Amar Singh, was defeated in a battle over territory. Rajindar Kaur gathered a force of 3000 soldiers, and they marched to the aid of her cousin. She offered the same support for her young nephew, Raja Sahib Singh, marching into the city of Maratha at the head of an army. She helped to arrange peace talks with the Maratha leaders.<br><br>
+                            After a short illness, Rajindar Kaur died in 1791. Her courage, perseverance and wisdom made her the equal of male rulers of her time.
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. What challenging things did Bibi Rajindar Kaur have to do?</span> <button class="reveal-btn" data-target="w1"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="w1" class="answer"><strong>Answer:</strong> Manage the family estate of 200+ villages, lead 3000 soldiers into battle to help her cousin, and arrange peace talks.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. What qualities did she have?</span> <button class="reveal-btn" data-target="w2"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="w2" class="answer"><strong>Answer:</strong> Courage, perseverance, and wisdom.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">Vocab: What is the meaning of <em>issues</em>?</span> <button class="reveal-btn" data-target="w3"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="w3" class="answer"><strong>Answer:</strong> Issues means important topics or problems (e.g., territorial battles and peace talks).</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-star"></i> A Woman Astronomer <span class="page-tag-inline">Page 46</span></h3>
+                        <div class="story-full">
+                            Wang Zhenyi (1768–1797) was born and grew up in what is now the province of Nanjing, China, at a time when girls were not allowed to be educated in schools. Her father and grandfather, however, were scholars and encouraged her to read the books in their libraries and educate herself. She devoured works on astronomy, mathematics, geography, medicine, as well as poetry.<br><br>
+                            In the late 18th century, stars and space were often viewed as supernatural matters. Many people at the time looked to the sky for signs of what the future held. They believed events such as eclipses were gods displaying their anger or displeasure.<br><br>
+                            However, Wang believed in facts and observation. She set out to learn astronomy and share what she found in clear, simple ways with other scientists and the public.<br><br>
+                            Wang did not have a laboratory, so she conducted experiments at home. In one experiment, she used a round table as the Earth, a lamp as the Sun and a mirror as the Moon to understand how they moved. She showed what happened in a lunar eclipse and a solar eclipse. Wang showed that the Moon can block our view of the Sun, creating a solar eclipse. She showed that the Earth can block sunlight from reaching the Moon, creating a lunar eclipse.<br><br>
+                            Wang felt that not allowing women and girls to be educated was unjust and bad for scientific discoveries.
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">1. How did Wang Zhenyi become educated?</span> <button class="reveal-btn" data-target="w4"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="w4" class="answer"><strong>Answer:</strong> Her father and grandfather were scholars and let her read books in their libraries to educate herself.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">2. What did people around her believe about stars and space? What did she believe?</span> <button class="reveal-btn" data-target="w5"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="w5" class="answer"><strong>Answer:</strong> People believed stars and space were supernatural and showed signs of the future. Wang believed in facts and observation.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">Language Alert: What is the effect of "she devoured works"?</span> <button class="reveal-btn" data-target="w6"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="w6" class="answer"><strong>Answer:</strong> It is a metaphor that means she read the books very quickly and eagerly, as if she were eating them.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">Vocab: What is <em>astronomy</em> the study of?</span> <button class="reveal-btn" data-target="w7"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="w7" class="answer"><strong>Answer:</strong> Astronomy is the study of the planets, moon, and stars.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 51 Discussion -->
+                <div style="background:#f4efe9; border-radius:18px; padding:18px 22px; margin-top:14px; border:1px solid #ddd2c6;">
+                    <h4 style="color:#264653;"><i class="fas fa-comments" style="color:#f4a261; margin-right:10px;"></i> Discuss the three biographies <span class="page-tag-inline">Page 51</span></h4>
+                    <div class="qa-block"><div class="flex-tag"><span class="question">1. What sources of information do you think the biographers used to write the first two biographies? Why?</span> <button class="reveal-btn" data-target="pg51a"><i class="fas fa-eye"></i> Show</button></div><div id="pg51a" class="answer"><strong>Answer:</strong> Historical records, books, letters, photos. Because the subjects lived long ago, so the biographer couldn't interview them directly.</div></div>
+                    <div class="qa-block"><div class="flex-tag"><span class="question">2. Could the biographer interview Wangari Maathai? Give a reason.</span> <button class="reveal-btn" data-target="pg51b"><i class="fas fa-eye"></i> Show</button></div><div id="pg51b" class="answer"><strong>Answer:</strong> Yes, because she died in 2011, so a biographer could have interviewed her while she was alive.</div></div>
+                    <div class="qa-block"><div class="flex-tag"><span class="question">3. Did you find enough biographical information? Give details.</span> <button class="reveal-btn" data-target="pg51c"><i class="fas fa-eye"></i> Show</button></div><div id="pg51c" class="answer"><strong>Answer:</strong> Yes — birth dates, challenges, achievements, and legacy are all covered.</div></div>
+                    <div class="qa-block"><div class="flex-tag"><span class="question">4. Identify the main challenges each woman faced.</span> <button class="reveal-btn" data-target="pg51d"><i class="fas fa-eye"></i> Show</button></div><div id="pg51d" class="answer"><strong>Answer:</strong> Kaur: leading armies / managing estate. Zhenyi: not allowed to go to school. Maathai: poverty & environmental damage.</div></div>
+                    <div class="qa-block"><div class="flex-tag"><span class="question">5. Why is Kaur's biography called <em>A Woman Without Weakness</em>?</span> <button class="reveal-btn" data-target="pg51e"><i class="fas fa-eye"></i> Show</button></div><div id="pg51e" class="answer"><strong>Answer:</strong> Because she showed great courage and strength in a man's world.</div></div>
+                    <div class="qa-block"><div class="flex-tag"><span class="question">6. What challenges did Wang Zhenyi experience in studying astronomy? How did she overcome them?</span> <button class="reveal-btn" data-target="pg51f"><i class="fas fa-eye"></i> Show</button></div><div id="pg51f" class="answer"><strong>Answer:</strong> No school, no lab. She self-taught using family library and used household items for experiments.</div></div>
+                    <div class="qa-block"><div class="flex-tag"><span class="question">7. Do you agree with Maathai that if you see something wrong you should act? Give a reason.</span> <button class="reveal-btn" data-target="pg51g"><i class="fas fa-eye"></i> Show</button></div><div id="pg51g" class="answer"><strong>Answer:</strong> (Open-ended) Yes, because it's responsible. No, because it's not always safe or possible.</div></div>
+                </div>
+            </div>
+
+            <!-- ─── SUB 2C: Wangari Maathai ─── -->
+            <div class="secondary-pane" id="sub2c">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Wangari Maathai – A Woman of Vision
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Pages 48–50</span>
+                </h2>
+                <div class="card">
+                    <h3><i class="fas fa-seedling"></i> Reading Part 2 (Full Text) <span class="page-tag-inline">Pages 48–50</span></h3>
+                    <div class="story-full" style="max-height:380px;">
+                        <strong>Wangari Maathai never complained about going to school.</strong> She was born in 1940 at a time when few Kenyan girls were fortunate enough to get an education. Her parents were poor farmers in a small village in rural Kenya. After they realised how intelligent Wangari was, they decided to send her to school. Wangari excelled at school and was given a scholarship to study in the United States. Her family didn't have to pay for anything.<br><br>
+                        After she studied in the United States, she returned and studied at the University of Nairobi. She got a doctorate (PhD), which is the highest qualification you can get at a university. She was the first woman in all of eastern and central Africa to earn a doctorate.<br><br>
+                        After she finished studying, she got a job at the university to teach veterinary anatomy, which is the study of animal bodies. At the same time, she became interested in the environment.<br><br>
+                        Wangari noticed that her country was no longer lush, green and fertile. Vegetation was disappearing and there were more droughts. Streams were drying up, forests were being cleared to make way for farms and plantations, and the Sahara Desert was expanding.<br><br>
+                        She felt that if you saw something and knew it was not right, you need to act to change it. So she decided to do something about the environment.<br><br>
+                        In 1976, Wangari came up with an idea that could help women while at the same time helping the environment. The idea was simple: she would start a programme that would pay women to plant trees.<br><br>
+                        Her idea developed into the Green Belt Movement (GBM) which helps poor people and keeps the environment healthy by planting trees.<br><br>
+                        Wangari understood that trees could do so many things: replenish the soil, provide wood for fuel, protect the water supply, provide nutrition from their fruits and help keep the air clean.<br><br>
+                        The Green Belt Movement helps rural women who live in poor, rural villages. Women form small groups, name their groups and open group bank accounts. They learn how to plant and care for trees and tree nurseries where trees are grown. Trees are planted in old cans and broken cups and transplanted to tree nurseries after they grow to 30 centimetres.<br><br>
+                        More than 51 million trees have been planted since Wangari Maathai founded the Green Belt Movement and the countryside is beginning to recover.<br><br>
+                        Wangari Maathai died on 25 September 2011. She was the first African woman to win a Nobel Peace Prize for her work to improve the environment.
+                    </div>
+                    
+                    <div class="grid-2" style="margin-top:6px;">
+                        <div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">Why was Wangari given a scholarship? <span class="page-tag-inline">Page 48</span></span> <button class="reveal-btn" data-target="wm1"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm1" class="answer"><strong>Answer:</strong> Because she excelled at school and was very intelligent.</div>
+                            </div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">What did Wangari notice was happening in her country? <span class="page-tag-inline">Page 49</span></span> <button class="reveal-btn" data-target="wm2"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm2" class="answer"><strong>Answer:</strong> Vegetation was disappearing, droughts were increasing, streams were drying up, forests were cleared, and the Sahara Desert was expanding.</div>
+                            </div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">Why did she decide to do something about the environment?</span> <button class="reveal-btn" data-target="wm3"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm3" class="answer"><strong>Answer:</strong> She believed that if you see something wrong, you should act to change it.</div>
+                            </div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">What two things does the Green Belt Movement help to solve? <span class="page-tag-inline">Page 50</span></span> <button class="reveal-btn" data-target="wm4"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm4" class="answer"><strong>Answer:</strong> It helps poor people (especially women) and keeps the environment healthy by planting trees.</div>
+                            </div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">How was Wangari rewarded for her achievements?</span> <button class="reveal-btn" data-target="wm5"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm5" class="answer"><strong>Answer:</strong> She won a Nobel Peace Prize (the first African woman to do so).</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">Vocab: What is <em>vegetation</em>? <span class="page-tag-inline">Page 49</span></span> <button class="reveal-btn" data-target="wm6"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm6" class="answer"><strong>Answer:</strong> Vegetation means plants and trees in a particular area.</div>
+                            </div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">Vocab: What is <em>nutrition</em>? <span class="page-tag-inline">Page 50</span></span> <button class="reveal-btn" data-target="wm7"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm7" class="answer"><strong>Answer:</strong> Nutrition refers to the food and nourishment needed for health and growth.</div>
+                            </div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">Language Alert: Find a list in the text that uses a colon (:). <span class="page-tag-inline">Page 50</span></span> <button class="reveal-btn" data-target="wm8"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm8" class="answer"><strong>Answer:</strong> "trees could do so many things: replenish the soil, provide wood for fuel, protect the water supply, provide nutrition from their fruits and help keep the air clean."</div>
+                            </div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">Language Alert: What is a synonym for <em>fortunate</em>? <span class="page-tag-inline">Page 48</span></span> <button class="reveal-btn" data-target="wm9"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm9" class="answer"><strong>Answer:</strong> Lucky.</div>
+                            </div>
+                            <div class="qa-block">
+                                <div class="flex-tag"><span class="question">Language Alert: What is the opposite of <em>rural</em>?</span> <button class="reveal-btn" data-target="wm10"><i class="fas fa-eye"></i> Show</button></div>
+                                <div id="wm10" class="answer"><strong>Answer:</strong> Urban (city).</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="extra-box" style="border-left-color:#264653; margin-top:10px;">
+                        <strong>Cross Curriculum: Conservation of Nature <span class="page-tag-inline">Page 49</span></strong><br>
+                        Reforestation means planting trees to help the Earth. Trees clean the air by taking in carbon dioxide, provide homes for animals and prevent soil erosion. Planting trees makes the world healthier and benefits both people and animals.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── SUB 2D: Thesaurus ─── -->
+            <div class="secondary-pane" id="sub2d">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Using a Thesaurus
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Page 52</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-book"></i> What is a Thesaurus? <span class="page-tag-inline">Page 52</span></h3>
+                        <ul>
+                            <li>A special kind of dictionary.</li>
+                            <li>Arranged alphabetically (A–Z).</li>
+                            <li><strong>Does not list definitions.</strong></li>
+                            <li>Lists <strong>synonyms</strong> (similar meaning) and <strong>antonyms</strong> (opposite meaning).</li>
+                        </ul>
+                        <div class="extra-box">
+                            <i class="fas fa-lightbulb" style="color:#f4a261;"></i> <strong>Tip:</strong> Be careful! Not all synonyms are interchangeable. <em>Angry</em> and <em>furious</em> are synonyms, but <em>furious</em> is a stronger feeling.
+                        </div>
+                        <p><strong>Example from text:</strong> "...founded the <strong>remarkable</strong> Green Belt Movement..."</p>
+                        <div class="example-box">
+                            <strong>remarkable</strong> (adjective)<br>
+                            Syn: amazing, extraordinary, significant, incredible<br>
+                            Ant: average, ordinary, common, mediocre
+                        </div>
+                        <div class="example-box">
+                            <strong>recover</strong> (verb)<br>
+                            Syn: get back, regain, restore<br>
+                            Ant: lose, give up, throw away
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-tasks"></i> Task <span class="page-tag-inline">Page 52</span></h3>
+                        <p>Look up <em>replenish</em> and <em>rural</em> in a thesaurus.</p>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">a. How many similar meanings are given for each word?</span> <button class="reveal-btn" data-target="th1"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="th1" class="answer"><strong>Answer:</strong> (Depending on the thesaurus used) Typically, 3–5 similar meanings for each.</div>
+                        </div>
+                        <div class="qa-block">
+                            <div class="flex-tag"><span class="question">b. What parts of speech are given?</span> <button class="reveal-btn" data-target="th2"><i class="fas fa-eye"></i> Show</button></div>
+                            <div id="th2" class="answer"><strong>Answer:</strong> <em>Replenish</em> is a verb. <em>Rural</em> is an adjective.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── SUB 2E: Speaking ─── -->
+            <div class="secondary-pane" id="sub2e">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Speaking: Ask and Answer Questions
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Page 53</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-microphone-alt"></i> Interview with Wang Zhenyi <span class="page-tag-inline">Page 53</span></h3>
+                        <div class="example-box" style="font-family:'Segoe UI', sans-serif;">
+                            <strong>Interviewer:</strong> Where are you from?<br>
+                            <strong>Wang:</strong> I was born and grew up in Nanjing in China.<br><br>
+                            <strong>Interviewer:</strong> Where did you go to school?<br>
+                            <strong>Wang:</strong> Girls weren't allowed to go to school. I had to stay at home.<br><br>
+                            <strong>Interviewer:</strong> How did you learn?<br>
+                            <strong>Wang:</strong> My grandfather and father were both scholars. They let me read the books in their libraries.<br><br>
+                            <strong>Interviewer:</strong> What kind of books did you like to read?<br>
+                            <strong>Wang:</strong> I was interested in all kinds of books, but some of my favourites were about astronomy, which is the study of the planets, moon and stars.
+                        </div>
+                        <div class="extra-box" style="border-left-color:#f4a261;">
+                            <strong>Task:</strong> Work with a classmate. One is the interviewer, one is Wang Zhenyi. Take turns asking and answering. Think of more questions to ask.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-comments"></i> Role Play <span class="page-tag-inline">Page 53</span></h3>
+                        <p>Choose one of the other women (Bibi Rajindar Kaur or Wangari Maathai) and take turns being the interviewer and the interviewee.</p>
+                        <div class="extra-box">
+                            <i class="fas fa-smile"></i> Remember to speak with expression!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── SUB 2F: Writing ─── -->
+            <div class="secondary-pane" id="sub2f">
+                <h2 style="font-size:1.6rem; color:#1a3340; border-left:8px solid #f4a261; padding-left:16px; margin-bottom:18px;">
+                    Writing: A Short Biography
+                    <span class="page-tag"><i class="fas fa-bookmark"></i> Page 54</span>
+                </h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-edit"></i> Structure <span class="page-tag-inline">Page 54</span></h3>
+                        <ul style="list-style-type: none; padding-left:0;">
+                            <li><strong>Title</strong></li>
+                            <li><strong>Introduction</strong> – Who is the biography about? What is this person famous for?</li>
+                            <li><strong>Childhood and Youth</strong> – When was this person born? Where did they grow up? What did they do when young?</li>
+                            <li><strong>Main Achievements</strong> – What were their main achievements? When? What obstacles did they face and overcome?</li>
+                            <li><strong>Legacy</strong> – Why is this person famous/remembered? What have people said about them? What is your opinion of this person?</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-tasks"></i> Writing Process <span class="page-tag-inline">Page 54</span></h3>
+                        <ol>
+                            <li><strong>Write:</strong> Write your first draft using your plan. You can write in your notebook or type it on a computer.</li>
+                            <li><strong>Revise and Edit:</strong> Work with a classmate. Exchange drafts, read and suggest ways to improve. Check for grammar, spelling, and punctuation errors.</li>
+                            <li><strong>Publish:</strong> Write your final draft of the biography. Share your writing with others.</li>
+                        </ol>
+                        <div class="extra-box" style="border-left-color:#264653;">
+                            <i class="fas fa-check-circle"></i> Use the notes from your Prewrite stage to help you.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /primary-content -->
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer-sig">
+        <i class="fas fa-user-graduate"></i> Prepared by <strong>Mr. Ahmed Gomaa</strong>
+        <span style="display:inline-block; margin-left:20px; font-weight:400; color:#7a6858; font-size:0.9rem;">
+            <i class="far fa-calendar-alt"></i> 2026
+        </span>
+    </div>
+
+</div><!-- /container -->
+
+
+<!-- ─── JAVASCRIPT ─── -->
+<script>
+    (function() {
+        const primaryBtns = document.querySelectorAll('.primary-tab-btn');
+        const primaryPanes = document.querySelectorAll('.primary-pane');
+
+        function activatePrimary(primaryId) {
+            primaryBtns.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.primary-tab-btn[data-primary="${primaryId}"]`).classList.add('active');
+            primaryPanes.forEach(pane => pane.classList.remove('active'));
+            document.getElementById(primaryId).classList.add('active');
+
+            const activePane = document.getElementById(primaryId);
+            const secNav = activePane.querySelector('.secondary-tab-nav');
+            const secBtns = secNav ? secNav.querySelectorAll('.secondary-tab-btn') : [];
+            const secPanes = activePane.querySelectorAll('.secondary-pane');
+            if (secBtns.length > 0 && secPanes.length > 0) {
+                secPanes.forEach(p => p.classList.remove('active'));
+                secBtns.forEach(b => b.classList.remove('active'));
+                secBtns[0].classList.add('active');
+                const firstPaneId = secBtns[0].getAttribute('data-secondary');
+                const targetPane = activePane.querySelector('#' + firstPaneId);
+                if (targetPane) targetPane.classList.add('active');
+            }
+        }
+
+        primaryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                activatePrimary(this.getAttribute('data-primary'));
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            const secBtn = e.target.closest('.secondary-tab-btn');
+            if (!secBtn) return;
+            const parentPrimary = secBtn.closest('.primary-pane');
+            if (!parentPrimary) return;
+            const secNav = parentPrimary.querySelector('.secondary-tab-nav');
+            const allSecBtns = secNav ? secNav.querySelectorAll('.secondary-tab-btn') : [];
+            const allSecPanes = parentPrimary.querySelectorAll('.secondary-pane');
+            allSecBtns.forEach(b => b.classList.remove('active'));
+            allSecPanes.forEach(p => p.classList.remove('active'));
+            secBtn.classList.add('active');
+            const targetId = secBtn.getAttribute('data-secondary');
+            const targetPane = parentPrimary.querySelector('#' + targetId);
+            if (targetPane) targetPane.classList.add('active');
+        });
+
+        const revealBtns = document.querySelectorAll('.reveal-btn');
+        revealBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const answerDiv = document.getElementById(targetId);
+                if (answerDiv) {
+                    answerDiv.classList.toggle('show');
+                    if (answerDiv.classList.contains('show')) {
+                        this.innerHTML = '<i class="fas fa-eye-slash"></i> Hide';
+                        this.classList.add('showing');
+                    } else {
+                        this.innerHTML = '<i class="fas fa-eye"></i> Show';
+                        this.classList.remove('showing');
+                    }
+                }
+            });
+        });
+
+        const initPrimary = document.querySelector('.primary-tab-btn.active');
+        if (initPrimary) {
+            const pid = initPrimary.getAttribute('data-primary');
+            const pane = document.getElementById(pid);
+            if (pane) {
+                primaryPanes.forEach(p => p.classList.remove('active'));
+                pane.classList.add('active');
+                const firstSecBtn = pane.querySelector('.secondary-tab-btn');
+                if (firstSecBtn) {
+                    const secBtns = pane.querySelectorAll('.secondary-tab-btn');
+                    const secPanes = pane.querySelectorAll('.secondary-pane');
+                    secBtns.forEach(b => b.classList.remove('active'));
+                    secPanes.forEach(p => p.classList.remove('active'));
+                    firstSecBtn.classList.add('active');
+                    const tid = firstSecBtn.getAttribute('data-secondary');
+                    const tpane = pane.querySelector('#' + tid);
+                    if (tpane) tpane.classList.add('active');
+                }
+            }
+        }
+    })();
+</script>
+
+</body>
+</html>
